@@ -153,17 +153,96 @@
         echo $cubeResult;
         echo "<br>";
         echo "<br>";
-        $isMale = false;
-        if($isMale) {
-            echo "You are male";
+        $isMale = true;
+        $isTall = false;
+        if($isMale && $isTall) {
+            echo "You are a tall male";
+        } elseif ($isMale && !$isTall) {
+            echo "You are not a tall male";
         } else {
-            echo "You are not male";
+            echo "You are not male but you may be tall";
+        };
+        echo "<br>";
+        echo "<br>";
+        function getMax($num1, $num2, $num3) {
+            if($num1 >= $num2 && $num1 >= $num3) {
+                return $num1;
+            } elseif ($num2 >= $num1 && $num2 >= $num3) {
+                return $num2;
+            } else {
+                return $num3;
+            }
+        };
+        echo getMax(4, 56, 12);
+        echo "<br>";
+        echo "<br>"; ?>
+        <form action="index.php" method="post">
+        First Number: <input type="number" step="0.1" name="num1"> <br>
+        Second Number: <input type="number" tep="0.1" name="num2"> <br>
+        Operation: <input type="text" name="operation"> <br>
+        <input type="submit" value="Confim">
+        </form>
+        <?php
+        echo "<br>";
+        echo "<br>";
+        $num1 = $_POST["num1"];
+        $num2 = $_POST["num2"];
+        $operation = $_POST["operation"];
+        if($operation == '+') {
+             echo $num1 + $num2;
+        } elseif($operation == '-') {
+             echo $num1 - $num2;
+        }elseif($operation == "/") {
+              echo $num1 / $num2;
+        } elseif ($operation == "*") {
+            echo $num1 * $num2;
+        } else {
+            echo "unknown operator";
+        }
+        echo "<br>";
+        echo "<br>";
+        ?>
+        <form action="index.php" method="post">
+        What was your grade?
+        <input type="text" name="grade">
+        <input type="submit" value="Confirm">
+        </form>
+        <?php
+        $grade = $_POST["grade"];
+        switch ($grade) {
+            case "A": echo "You did amazing!";
+            break;
+            case "B": echo "You did pretty good!";
+                break;
+            case "C": echo "You did poorly!";
+                break;
+            case "D": echo "You did aweful!";
+                break;
+            default:
+                echo "Invalid Grade";
+
+        };
+        echo "<br>";
+        echo "<br>";
+
+        $index = 1;
+
+        while ($index <=5) {
+            echo "$index <br>";
+            $index++;
+            
+        };
+        echo "<br>";
+        echo "<br>";
+
+        $luckyNumbers = array(4, 8, 14, 16, 23, 42);
+        for($i=0; $i < count($luckyNumbers); $i++) {
+            echo "$luckyNumbers[$i]<br>";
         };
         echo "<br>";
         echo "<br>";
         echo "<br>";
         echo "<br>";
-        
     ?>
-</body>
+</body> 
 </html>
